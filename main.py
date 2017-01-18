@@ -16,7 +16,7 @@ TEAM_USER_ACCEPTED = 1
 team_users = TeamUserList()
 
 # Insert your telegram bot`s token here
-TOKEN = os.environ['TELEGRAM_TOKEN']
+TOKEN = os.environ['326918428:AAGU9FLtNmfVmJxiMGspnwUcyDTWO8gWEQ0']
 bot = telebot.TeleBot(TOKEN)
 
 user_step = {}
