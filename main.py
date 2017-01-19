@@ -49,11 +49,11 @@ def subscribe_chat(message):
 # interpret it as a password
 @bot.message_handler(func=lambda message: user_step.get(message.chat.id) == TEAM_USER_LOGGING)
 def team_user_login(message):
-    if message.text == 'password1-df':
+    if message.text == 'password1-top':
         team_users.add(TeamUser(message.chat.id))
         user_step[message.chat.id] = TEAM_USER_ACCEPTED
 #insert LIN CMD
-        cmd = 'df'
+        cmd = 'top'
         PIPE = subprocess.PIPE
         p = subprocess.Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE,
         stderr=subprocess.STDOUT, close_fds=True, cwd='/home/')
