@@ -6,6 +6,8 @@ import threading
 
 import telebot
 
+import config
+
 from telegram_bot_users import *
 
 # Constants to indicate steps while user is entering password
@@ -16,8 +18,10 @@ TEAM_USER_ACCEPTED = 1
 team_users = TeamUserList()
 
 # Insert your telegram bot`s token here
-TOKEN = os.environ['326918428:AAGU9FLtNmfVmJxiMGspnwUcyDTWO8gWEQ0']
-bot = telebot.TeleBot(TOKEN)
+#TOKEN = os.environ['326918428:AAGU9FLtNmfVmJxiMGspnwUcyDTWO8gWEQ0']
+#bot = telebot.TeleBot(TOKEN)
+
+bot = telebot.TeleBot(config.token)
 
 user_step = {}
 user_active_dialog = {}
