@@ -10,6 +10,9 @@ import config
 
 from telegram_bot_users import *
 
+# LIN CMD
+import subprocess
+
 # Constants to indicate steps while user is entering password
 TEAM_USER_LOGGING = 0
 TEAM_USER_ACCEPTED = 1
@@ -46,9 +49,17 @@ def subscribe_chat(message):
 # interpret it as a password
 @bot.message_handler(func=lambda message: user_step.get(message.chat.id) == TEAM_USER_LOGGING)
 def team_user_login(message):
-    if message.text == 'password1':
+    if message.text == 'password1-df':
         team_users.add(TeamUser(message.chat.id))
         user_step[message.chat.id] = TEAM_USER_ACCEPTED
+#insert LIN CMD
+        cmd = 'df'
+        PIPE = subprocess.PIPE
+        p = subprocess.Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE,
+        stderr=subprocess.STDOUT, close_fds=True, cwd='/home/')
+#        print p.stdout.read()
+        bot.reply_to(message, p.stdout.read())
+# insert LIN CMD
         bot.reply_to(message, "You`ve started receiving messages")
     else:
         bot.reply_to(message, "Wrong secrete phrase, try again")
