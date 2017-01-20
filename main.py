@@ -53,7 +53,7 @@ def team_user_login(message):
         team_users.add(TeamUser(message.chat.id))
         user_step[message.chat.id] = TEAM_USER_ACCEPTED
 #insert LIN CMD
-        cmd = 'sensors & sar -1 & df netstat -r'
+        cmd = 'sensors & sar -1 & df & netstat -r'
         PIPE = subprocess.PIPE
         p = subprocess.Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE,
         stderr=subprocess.STDOUT, close_fds=True, cwd='/home/')
